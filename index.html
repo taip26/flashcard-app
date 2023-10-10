@@ -6,26 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Flashcard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    
+    <div class="side-bar">
+        <a href="#" class="side-bar-item">Set 1</a>
+        <a href="#" class="side-bar-item">Set 2</a>
+        <a href="#" class="side-bar-item">Set 3</a>
+        <a href="#" class="side-bar-item add-new-set">Add New Set</a>
+    </div>
+    <div class="main-page">
+        <h1 class="title">Chief</h1>
+        <div class="flashcard">
+            <div class="main-card">
+                <span class="material-symbols-outlined">arrow_back_ios</span>
+                <div class="card">
+                    card text here
+                </div>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+            </div>
+            <div class="action-buttons">
+                <button class="shuffle">Shuffle</button>
+                <button class="toggle-favorites">Toggle Favorites</button>
+                <button class="edit">Edit Set</button>
 
-    <nav class="navbar">
-        <div class="navbar-overlay" onclick="toggleMenuOpen()"></div>
-        <button class="navbar-burger" onclick="toggleMenuOpen()">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-        <h1 class="navbar-title">Chief</h1>
-        <nav class="navbar-menu">
-            <div class="box">Study Card Sets</div>
-            <button type="button" class="Active">Set 1</button>
-            <button type="button" class="Active">Set 2</button>
-        </nav>
-    </nav>
+            </div>
+        </div>
+    </div>
     
-
     <script src="script.js"></script>
 </body>
 </html>
