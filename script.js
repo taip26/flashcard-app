@@ -1,53 +1,40 @@
-const indexedDB = 
-    window.indexedDB || 
-    window.mozIndexedDB || 
-    window.webkitIndexedDB || 
-    window.msIndexedDB || 
-    window.shimIndexedDB;
+console.log('I love you most always! <3');
 
-const request = indexedDB.open("Database", 1);
 
-request.onerror = function (event) {
-    console.error("An error occured with IndexedDB");
-    console.error(event);
-};
 
-request.onupgradeneeded = function () {
-    const db = request.result;
-    const store = db.createObjectStore("cards", { keyPath: "id"});
-    store.createIndex("card_set", ["set"], {unique: false});
-    store.createIndex("set_favorite", ["set", "favorite"], {unique: false});
- };
+let front = true;
+let curId = 3;
 
- request.onsuccess = function () {
-    const db = request.result;
-    const transaction = db.transaction("cards", "readwrite");
+function flipCard() {
+  var text = document.getElementById("card-text");
+  if (front) {
+    text.innerHTML = "Back";
+    front = false;
+  } else {
+    text.innerHTML = "Front";
+    front = true;
+  }
+}
 
-    const store = transaction.objectStore("cards");
-    const setIndex = store.index("card_set");
-    const setFavorite = store.index("set_favorite");
+function selectSet(id) {
+  var text = document.getElementById("card-text");
+  text.innerHTML = id;
+}
 
-    store.put( {id: 1, card_set: "Orgo", set_favorite: "true"});
+function favorite(e) {
+  e.stopPropagation();
+  var text = document.getElementById("card-text");
+  text.innerHTML = "Favorite";
+}
 
-    // store.put({ id: 1, color: "Red", make: "Toyota"});
-
-    // const idQuery = store.get(1);
-    // const colorQ = colorIndex.getAll("Red");
-
-    const idQuery = store.get(1);
-    const setQuery = store.getAll("Orgo");
-
-    idQuery.onsuccess = function() {
-        console.log('idQuery', idQuery.result);
-    };
-
-    setQuery.onsuccess = function() {
-        console.log('setQuery', idQuery.result);
-    };
-
-    transaction.oncomplete = function() {
-        db.close();
-    };
- };
-
- 
+function addSet() {
+  var sidebar = document.getElementById("side-bar");
+  var button = document.createElement("button");
+  button.setAttribute("class", "set-button");
+  button.setAttribute("onclick", "selectSet(this.id)");
+  button.setAttribute("id", curId);
+  button.innerHTML = "Set " + curId;
+  curId++;
+  sidebar.insertBefore(button, sidebar.lastChild.previousSibling);
+  
+}

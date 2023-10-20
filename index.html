@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <title>Flashcard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,31 +13,34 @@
     
 </head>
 <body>
-    <div class="side-bar">
-        <a href="#" class="side-bar-item">Set 1</a>
-        <a href="#" class="side-bar-item">Set 2</a>
-        <a href="#" class="side-bar-item">Set 3</a>
-        <a href="#" class="side-bar-item add-new-set">Add New Set</a>
+    <div class="side-bar" id="side-bar">
+        <button class="set-button" onclick="selectSet(this.id)" id="1">Set 1</button>
+        <button class="set-button" onclick="selectSet(this.id)" id="2">Set 2</button>
+        <button class="set-button add-set" onclick="addSet()">Add Set</button>
     </div>
     <div class="main-page">
         <h1 class="title">Chief</h1>
-        <div class="flashcard">
+            <div class="flashcard">
             <div class="main-card">
                 <span class="material-symbols-outlined">arrow_back_ios</span>
-                <div class="card">
-                    card text here
+                <div class="card" onclick="flipCard()">
+                    <div class="card-top">
+                        <span class="material-symbols-outlined star"onclick="favorite(event)">star</span>
+                    </div>
+                    <div id="card-text">
+                        This is the beginning of something great
+                    </div>
+                    <div class="card-bottom""></div>
                 </div>
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
             </div>
             <div class="action-buttons">
+                <button id="favorites">Favorites</button>
                 <button class="shuffle">Shuffle</button>
-                <button class="toggle-favorites">Toggle Favorites</button>
                 <button class="edit">Edit Set</button>
-
             </div>
         </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>

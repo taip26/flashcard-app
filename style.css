@@ -10,24 +10,28 @@ body {
   top: 0;
   left: 0;
   background-color: rgb(201, 181, 243);
-  padding-top: 15px;
+  border-right: solid purple 1px;
 }
 
-.side-bar a {
+.side-bar button {
   color:purple;
+  background-color: rgb(201, 181, 243);
+  border: none;
+  border-bottom: purple solid 1px;
   display:block;
+  width: 100%;
   text-align: center;
   font-size: 30px;
   text-decoration: none;
+  padding: 10px;
 }
 
-.add-new-set a {
-  color:rgb(167, 15, 167);
-}
 
-.side-bar a:hover {
+.side-bar button:hover {
   color: #f1f1f1;
   background-color: rgb(212, 198, 243);
+  border:none;
+  border-bottom: purple solid 1px;
 }
 
 .main-page {
@@ -43,22 +47,94 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 10px;
+  padding-left: 10px;
 }
 
 .card {
   display: flex;
+  flex-direction: column;
   width: 600px;
   height: 400px;
-  align-items: center;
-  justify-content: center;
   border: solid grey 1px;
   box-shadow: 1px 1px 3px grey;
   margin: 15px;
   font-size: 30px;
 }
 
+.card-top, .card-bottom {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 5px;
+}
+
+#card-text {
+  float: right;
+  text-align: center;
+  inline-size: 80%;
+  overflow-wrap: break-word;
+  margin: auto;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-symbols-outlined.star:hover {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.star {
+  font-size: 35px;
+}
+
+.main-card .material-symbols-outlined:hover, 
+.main-card .card:hover, 
+button:hover {
+  cursor:pointer;
+}
+
+.action-buttons {
+  display: flex;
+  width: 600px;
+  margin-left: 50px;
+  justify-content: space-between;
+}
+
+.action-buttons button {
+  font-size: 20px;
+  font-family: 'Gabarito', cursive;
+  border: white 1px solid;
+  padding: 10px;
+  color: #f1f1f1;
+  background-color: rgb(171, 106, 245);
+}
+
+button:hover {
+  color: #000000;
+  background-color: rgb(171, 106, 245);
+  border: solid rgb(171, 106, 245) 1px;
+  border-radius: 2px;
+}
+
 @media screen and (max-height: 450px) {
   .side-bar {padding-top: 15px;}
   .side-bar a {font-size: 18px;}
 }
+/*
+{ card obj
+  favorite: bool,
+  set: string,
+  ID: int,
+  frontside: text or pic,
+  backside: text or pic
+}*/
